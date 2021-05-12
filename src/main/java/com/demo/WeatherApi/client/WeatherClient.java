@@ -29,11 +29,9 @@ public class WeatherClient {
 	}
 
 
-	public Object getWeatherDetailsByCoordinates(String coordinates) {
+	public Object getWeatherDetailsByCoordinates(String lon, String lat) {
 		
-		 String[] arr = coordinates.split("\\,");
-		 final String weatherByCoordinatesUri = coordinatesUri+"lon="+arr[0]+"&lat="+arr[1];
-		 System.out.println(weatherByCoordinatesUri);
+		 final String weatherByCoordinatesUri = coordinatesUri+"lon="+lon+"&lat="+lat;
 		    String result = restTemplate.getForObject(weatherByCoordinatesUri, String.class);
 		    return result;
 	}

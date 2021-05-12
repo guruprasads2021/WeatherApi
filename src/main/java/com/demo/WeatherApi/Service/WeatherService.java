@@ -14,8 +14,8 @@ public class WeatherService {
 		return weatherClient.getWeatherDetailsByCityName(city); 
 	}
 
-	public Object getWeatherDetailsByCoordinates(String coordinates) {
-		return weatherClient.getWeatherDetailsByCoordinates(coordinates); 
+	public Object getWeatherDetailsByCoordinates(String lon, String lat) {
+		return weatherClient.getWeatherDetailsByCoordinates(lon, lat); 
 	}
 
 }

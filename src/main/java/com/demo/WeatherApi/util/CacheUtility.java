@@ -25,8 +25,7 @@ public class CacheUtility {
     }
 
     @CacheEvict(allEntries = true, value = {CITY_WEATHER})
-    //@Scheduled(fixedDelay = 10 * 60 * 1000 ,  initialDelay = 500)
-      @Scheduled(fixedDelay = 120 * 60 * 1000 ,  initialDelay = 500)
+    @Scheduled(fixedDelay = 120 * 60 * 1000 ,  initialDelay = 500)
     public void reportCacheEvict() {
         System.out.println("Flushing Cache " +new Date());
     }

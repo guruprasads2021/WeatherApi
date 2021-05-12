@@ -21,17 +21,17 @@ public class WeatherController {
 	@Autowired
 	WeatherService weatherService;
 	
-	@GetMapping("/{city}")
+	@GetMapping(path = "/{city}", produces = "application/json")
 	public ResponseEntity<String> getWeather(@PathVariable String city) {
-		System.out.println("controller /city");
+
 		String response = weatherService.getWeatherDetailsByCityName(city);
 		return new ResponseEntity<>(response, OK);
 	}
 	
-	@GetMapping("/coordinates/{coordinates}")
-	public ResponseEntity<String> getWeatherByCoordinates(@PathVariable String coordinates) {
+	@GetMapping(path = "/coordinate/{lon},{lat}", produces = "application/json")
+	public ResponseEntity<String> getWeatherByCoordinates(@PathVariable String lon,@PathVariable String lat) {
 		
-		Object response = weatherService.getWeatherDetailsByCoordinates(coordinates);
+		Object response = weatherService.getWeatherDetailsByCoordinates(lon, lat);
 		return new ResponseEntity(response, OK);
 	}
 }
